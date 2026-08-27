@@ -23,6 +23,7 @@ from repository_auditor.scanner.filesystem import scan_documentation
 from repository_auditor.scanner.git import scan_git
 from repository_auditor.scanner.security import scan_security
 from repository_auditor.scanner.technology import scan_technologies
+from repository_auditor.scoring import calculate_score
 
 
 def run_local_audit(path: str) -> AuditResult:
@@ -114,6 +115,12 @@ def main(argv: list[str] | None = None) -> None:
         help="Desactivar explícitamente la integración con GitHub",
     )
     parser.add_argument(
+        "--score",
+        action="store_true",
+        default=False,
+        help="Mostrar score de salud del repositorio",
+    )
+    parser.add_argument(
         "--version",
         action="version",
         version=f"%(prog)s {__version__}",
@@ -131,7 +138,9 @@ def main(argv: list[str] | None = None) -> None:
         github_rules = evaluate_github_rules(local_result, github_result)
         local_result.rule_results.extend(github_rules)
 
-    report = format_report(local_result, github_result)
+    score_result = calculate_score(local_result.rule_results)
+
+    report = format_report(local_result, github_result, score_result)
     print(report)
 
 

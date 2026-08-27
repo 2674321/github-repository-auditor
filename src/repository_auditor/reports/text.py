@@ -11,6 +11,7 @@ from repository_auditor.models.repository import (
     AuditResult,
     RuleStatus,
 )
+from repository_auditor.scoring.models import ScoreResult
 
 
 def _format_size(size_bytes: int) -> str:
@@ -117,12 +118,14 @@ def _format_github_section(github: GitHubAuditResult) -> list[str]:
 def format_report(
     result: AuditResult,
     github: GitHubAuditResult | None = None,
+    score: ScoreResult | None = None,
 ) -> str:
     """Genera un reporte de texto formateado.
 
     Args:
         result: Resultado completo del análisis local.
         github: Resultado de la auditoría de GitHub (opcional).
+        score: Resultado del scoring (opcional).
 
     Returns:
         Texto formateado para mostrar en consola.
@@ -245,6 +248,22 @@ def format_report(
         lines.append(f"  Advertencias: {warn_count}")
         lines.append(f"  Fallidas: {fail_count}")
     lines.append("")
+
+    # Sección de score (si se solicita)
+    if score is not None:
+        lines.append("Repository Health")
+        lines.append("-" * 20)
+        lines.append(f"  Score: {score.score}/{score.max_score}")
+        lines.append(f"  Rating: {score.rating.value}")
+        lines.append("")
+        for cat in score.categories:
+            pct = f"{cat.percentage:.0f}%"
+            lines.append(
+                f"  {cat.category:<15} "
+                f"{cat.score:.0f}/{cat.max_score:.0f} ({pct})"
+            )
+        lines.append("")
+
     lines.append("  ANÁLISIS COMPLETADO")
 
     return "\n".join(lines)

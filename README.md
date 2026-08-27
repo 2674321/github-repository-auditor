@@ -1,18 +1,19 @@
 # Repository Health Auditor
 
-**Auditor de repositorios Git/GitHub — R0.6**
+**Auditor de repositorios Git/GitHub — R0.7**
 
-Una herramienta que analiza repositorios Git locales y la información de GitHub (vía API), evalúa su calidad, documentación, estructura, seguridad, versionado y automatización.
+Una herramienta que analiza repositorios Git locales y la información de GitHub (vía API), evalúa su calidad, documentación, estructura, seguridad, versionado y automatización, y genera un score de salud cuantificable.
 
-## Estado actual: R0.6
+## Estado actual: R0.7
 
-Esta versión combina auditoría local con consulta a la API de GitHub. No utiliza OAuth, no crea Issues/PRs/Releases, no modifica repositorios.
+Esta versión agrega scoring cuantitativo con diagnósticos explicables.
 
 ### Qué analiza
 
 - **Local:** Estructura, documentación, tecnologías, Git, seguridad básica
 - **GitHub:** Repositorio, releases, issues, PRs, Actions, Dependabot
 - **Reglas:** 13 reglas locales + 4 reglas de GitHub
+- **Scoring:** Score 0–100, 5 categorías, diagnósticos con prioridades
 
 ### Qué NO hace todavía
 
@@ -44,6 +45,9 @@ repo-auditor --no-github .
 
 # Auditar local + GitHub API (requiere GITHUB_TOKEN)
 repo-auditor --github ./ruta/al/repositorio
+
+# Mostrar score de salud
+repo-auditor --score .
 
 # Ver ayuda
 repo-auditor --help
@@ -163,13 +167,11 @@ pytest tests/test_filesystem.py
 | Versión | Descripción | Estado |
 |---------|-------------|--------|
 | R0.5 | Auditor local | ✅ |
-| R0.6 | Integración con GitHub API | ✅ Actual |
-| R0.7 | Motor de reglas avanzado | Pendiente |
-| R0.8 | Informes detallados | Pendiente |
-| R0.9 | GitHub Actions | Pendiente |
-| R0.9.5 | Issues automáticos | Pendiente |
-| R1.0 | Integración completa con GitHub | Pendiente |
-| R1.x | GitHub App | Pendiente |
+| R0.6 | Integración con GitHub API | ✅ |
+| R0.7 | Health Score & Diagnostics | ✅ Actual |
+| R0.8 | Export & History | Pendiente |
+| R0.9 | Reporting & UX | Pendiente |
+| R1.0 | Stable Release | Pendiente |
 
 ## Licencia
 

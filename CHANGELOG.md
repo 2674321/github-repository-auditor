@@ -5,6 +5,19 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/),
 y este proyecto adherisce a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [0.3.0] - 2026-08-27
+
+### Añadido
+
+- Motor de scoring: `scoring/` module con engine, models, weights
+- Score global 0–100 con clasificación (EXCELLENT/GOOD/FAIR/POOR/CRITICAL)
+- 5 categorías ponderadas: documentation, git, technology, security, github
+- Diagnósticos con prioridades (CRITICAL/HIGH/MEDIUM/LOW/INFO)
+- Flag `--score` en CLI
+- Sección "Repository Health" en reporte de texto
+- 29 tests nuevos (scoring engine, weights, models, diagnostics) — 193 totales
+- NOT_APPLICABLE no penaliza el score injustificadamente
+
 ## [0.2.0] - 2026-08-27
 
 ### Añadido
