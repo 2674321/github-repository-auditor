@@ -1,3 +1,3 @@
-"""Repository Health Auditor — Auditor local de repositorios Git/GitHub."""
+"""Repository Health Auditor — Auditor de repositorios Git/GitHub."""
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"

@@ -1,21 +1,10 @@
 # Repository Health Auditor
 
-**Auditor de repositorios Git/GitHub — R0.9**
+**Auditor de repositorios Git/GitHub — R1.0**
 
-Una herramienta que analiza repositorios Git locales y la información de GitHub (vía API), evalúa su calidad, genera un score de salud cuantificable, diagnósticos explicables, y permite exportar y comparar auditorías.
+Herramienta CLI profesional que analiza repositorios Git locales y GitHub, evalúa su calidad, genera un score de salud cuantificable con diagnósticos explicables, y permite exportar y comparar auditorías.
 
-## Estado actual: R0.9
-
-Esta versión agrega modos de reporte (summary/verbose), colores y diagnósticos.
-
-### Qué analiza
-
-- **Local:** Estructura, documentación, tecnologías, Git, seguridad básica
-- **GitHub:** Repositorio, releases, issues, PRs, Actions, Dependabot
-- **Reglas:** 13 reglas locales + 4 reglas de GitHub
-- **Scoring:** Score 0–100, 5 categorías, diagnósticos con prioridades
-- **Export:** JSON estructurado, comparación entre auditorías
-- **UX:** Colores, summary, verbose, diagnósticos, recomendaciones
+## Instalación
 
 ### Qué NO hace todavía
 
@@ -190,8 +179,8 @@ pytest tests/test_filesystem.py
 | R0.6 | Integración con GitHub API | ✅ |
 | R0.7 | Health Score & Diagnostics | ✅ |
 | R0.8 | Export & History | ✅ |
-| R0.9 | Reporting & UX | ✅ Actual |
-| R1.0 | Stable Release | Pendiente |
+| R0.9 | Reporting & UX | ✅ |
+| R1.0 | Stable Release | ✅ Actual |
 
 ## Licencia
 

@@ -56,7 +56,7 @@ class TestCLI:
             capture_output=True, text=True,
         )
         assert result.returncode == 0
-        assert "0.1.0" in result.stdout
+        assert "1.0.0" in result.stdout
 
     def test_audit_repo(self, git_repo):
         result = subprocess.run(

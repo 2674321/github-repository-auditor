@@ -5,6 +5,52 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/),
 y este proyecto adherisce a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [1.0.0] - 2026-08-27
+
+### R1.0 — Stable Release
+
+Versión estable del Repository Health Auditor.
+
+#### Funcionalidades completas
+
+- **R0.5:** Auditor local (filesystem, git, technology, security, rules)
+- **R0.6:** Integración GitHub API (client, models, errors, url_parser)
+- **R0.7:** Health Score & Diagnostics (scoring engine, weights, categories)
+- **R0.8:** Export & History (JSON, compare, exit codes)
+- **R0.9:** Reporting & UX (summary, verbose, colors, diagnostics, recommendations)
+
+#### CLI
+
+- `repo-auditor [path]` — auditoría completa
+- `repo-auditor audit [path]` — subcomando explícito
+- `repo-auditor compare old.json new.json` — comparar auditorías
+- `--github` / `--no-github` — integración GitHub
+- `--score` — mostrar score
+- `--format json` — exportar JSON
+- `-o file` — guardar en archivo
+- `--summary` / `--verbose` — modos de reporte
+- `--no-color` — deshabilitar colores
+- Exit codes: 0=ok, 1=warnings, 2=failures, 3=error
+
+#### Scoring
+
+- Score global 0–100
+- 5 categorías ponderadas: documentation(20), git(20), technology(15), security(25), github(20)
+- Ratings: EXCELLENT(90+), GOOD(75+), FAIR(60+), POOR(40+), CRITICAL(<40)
+- NOT_APPLICABLE no penaliza injustificadamente
+
+#### Seguridad
+
+- GITHUB_TOKEN nunca filtrado en errores, logs, reportes o JSON
+- Sin dependencias externas en producción
+- Python >= 3.10
+
+#### Tests
+
+- 230 tests pasando
+- 0 tests fallidos
+- Ruff limpio
+
 ## [0.5.0] - 2026-08-27
 
 ### Añadido
