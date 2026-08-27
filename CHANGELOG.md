@@ -5,6 +5,17 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/),
 y este proyecto adherisce a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [0.4.0] - 2026-08-27
+
+### Añadido
+
+- Exportación JSON: `--format json` con metadatos, reglas, score, GitHub
+- Archivo de salida: `-o`/`--output` para text y JSON
+- Subcomando `compare`: compara dos auditorías JSON (score, reglas nuevas/resueltas)
+- Exit codes: 0=ok, 1=warnings, 2=failures, 3=error
+- Backward compatible: `repo-auditor /path` sigue funcionando sin subcomando
+- 25 tests nuevos (JSON export, parse, compare, exit codes) — 218 totales
+
 ## [0.3.0] - 2026-08-27
 
 ### Añadido

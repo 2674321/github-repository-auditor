@@ -1,12 +1,12 @@
 # Repository Health Auditor
 
-**Auditor de repositorios Git/GitHub — R0.7**
+**Auditor de repositorios Git/GitHub — R0.8**
 
-Una herramienta que analiza repositorios Git locales y la información de GitHub (vía API), evalúa su calidad, documentación, estructura, seguridad, versionado y automatización, y genera un score de salud cuantificable.
+Una herramienta que analiza repositorios Git locales y la información de GitHub (vía API), evalúa su calidad, documentación, estructura, seguridad, versionado y automatización, genera un score de salud cuantificable, y permite exportar y comparar auditorías.
 
-## Estado actual: R0.7
+## Estado actual: R0.8
 
-Esta versión agrega scoring cuantitativo con diagnósticos explicables.
+Esta versión agrega exportación JSON, comparación de auditorías y exit codes.
 
 ### Qué analiza
 
@@ -14,6 +14,7 @@ Esta versión agrega scoring cuantitativo con diagnósticos explicables.
 - **GitHub:** Repositorio, releases, issues, PRs, Actions, Dependabot
 - **Reglas:** 13 reglas locales + 4 reglas de GitHub
 - **Scoring:** Score 0–100, 5 categorías, diagnósticos con prioridades
+- **Export:** JSON estructurado, comparación entre auditorías
 
 ### Qué NO hace todavía
 
@@ -40,14 +41,20 @@ Requiere Python 3.10 o superior.
 ## Uso
 
 ```bash
-# Auditar solo localmente (como R0.5)
-repo-auditor --no-github .
+# Auditar localmente
+repo-auditor .
 
-# Auditar local + GitHub API (requiere GITHUB_TOKEN)
-repo-auditor --github ./ruta/al/repositorio
+# Auditar con GitHub API
+repo-auditor --github .
 
-# Mostrar score de salud
-repo-auditor --score .
+# Exportar a JSON
+repo-auditor --format json -o report.json
+
+# Exportar a JSON con score
+repo-auditor --format json --score -o report.json
+
+# Comparar dos auditorías
+repo-auditor compare old.json new.json
 
 # Ver ayuda
 repo-auditor --help
@@ -55,6 +62,15 @@ repo-auditor --help
 # Ver versión
 repo-auditor --version
 ```
+
+### Exit Codes
+
+| Código | Significado |
+|--------|-------------|
+| 0 | Auditoría OK (sin warnings) |
+| 1 | Warnings detectados |
+| 2 | Failures detectados |
+| 3 | Error de ejecución |
 
 ### GitHub API
 
@@ -168,8 +184,8 @@ pytest tests/test_filesystem.py
 |---------|-------------|--------|
 | R0.5 | Auditor local | ✅ |
 | R0.6 | Integración con GitHub API | ✅ |
-| R0.7 | Health Score & Diagnostics | ✅ Actual |
-| R0.8 | Export & History | Pendiente |
+| R0.7 | Health Score & Diagnostics | ✅ |
+| R0.8 | Export & History | ✅ Actual |
 | R0.9 | Reporting & UX | Pendiente |
 | R1.0 | Stable Release | Pendiente |
 
