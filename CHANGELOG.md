@@ -5,6 +5,17 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/),
 y este proyecto adherisce a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [0.5.0] - 2026-08-27
+
+### Añadido
+
+- Modos de reporte: `--summary` (solo score), `--verbose` (todos los detalles)
+- Soporte de colores ANSI con detección de TTY
+- Flag `--no-color` para deshabilitar colores
+- Sección de Diagnósticos en reporte de texto
+- Sección de Recommendations derivadas de reglas
+- 12 tests nuevos (summary, verbose, color, diagnostics) — 230 totales
+
 ## [0.4.0] - 2026-08-27
 
 ### Añadido

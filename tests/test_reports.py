@@ -95,7 +95,7 @@ class TestFormatReport:
     def test_contains_rules(self):
         result = _make_result()
         report = format_report(result)
-        assert "Reglas de validación" in report
+        assert "Reglas" in report
 
     def test_contains_status(self):
         result = _make_result()

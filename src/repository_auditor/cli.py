@@ -130,7 +130,14 @@ def _cmd_audit(args: argparse.Namespace) -> None:
     if args.format == "json":
         output = format_json(local_result, github_result, score_result)
     else:
-        output = format_report(local_result, github_result, score_result)
+        output = format_report(
+            local_result,
+            github_result,
+            score_result,
+            summary=getattr(args, "summary", False),
+            verbose=getattr(args, "verbose", False),
+            color=not getattr(args, "no_color", False) if hasattr(args, "no_color") else None,
+        )
 
     if args.output:
         out_path = Path(args.output)
@@ -253,6 +260,24 @@ def main(argv: list[str] | None = None) -> None:
     audit_parser.add_argument(
         "-o", "--output",
         help="Guardar resultado en archivo",
+    )
+    audit_parser.add_argument(
+        "--summary",
+        action="store_true",
+        default=False,
+        help="Mostrar solo score y resumen",
+    )
+    audit_parser.add_argument(
+        "--verbose",
+        action="store_true",
+        default=False,
+        help="Mostrar todos los detalles incluyendo reglas pasadas",
+    )
+    audit_parser.add_argument(
+        "--no-color",
+        action="store_true",
+        default=False,
+        help="Deshabilitar colores en la salida",
     )
 
     # Subcomando: compare

@@ -1,12 +1,12 @@
 # Repository Health Auditor
 
-**Auditor de repositorios Git/GitHub — R0.8**
+**Auditor de repositorios Git/GitHub — R0.9**
 
-Una herramienta que analiza repositorios Git locales y la información de GitHub (vía API), evalúa su calidad, documentación, estructura, seguridad, versionado y automatización, genera un score de salud cuantificable, y permite exportar y comparar auditorías.
+Una herramienta que analiza repositorios Git locales y la información de GitHub (vía API), evalúa su calidad, genera un score de salud cuantificable, diagnósticos explicables, y permite exportar y comparar auditorías.
 
-## Estado actual: R0.8
+## Estado actual: R0.9
 
-Esta versión agrega exportación JSON, comparación de auditorías y exit codes.
+Esta versión agrega modos de reporte (summary/verbose), colores y diagnósticos.
 
 ### Qué analiza
 
@@ -15,6 +15,7 @@ Esta versión agrega exportación JSON, comparación de auditorías y exit codes
 - **Reglas:** 13 reglas locales + 4 reglas de GitHub
 - **Scoring:** Score 0–100, 5 categorías, diagnósticos con prioridades
 - **Export:** JSON estructurado, comparación entre auditorías
+- **UX:** Colores, summary, verbose, diagnósticos, recomendaciones
 
 ### Qué NO hace todavía
 
@@ -44,14 +45,17 @@ Requiere Python 3.10 o superior.
 # Auditar localmente
 repo-auditor .
 
-# Auditar con GitHub API
-repo-auditor --github .
+# Solo score y resumen
+repo-auditor --summary .
+
+# Todos los detalles
+repo-auditor --verbose .
+
+# Sin colores (para CI/scripts)
+repo-auditor --no-color .
 
 # Exportar a JSON
 repo-auditor --format json -o report.json
-
-# Exportar a JSON con score
-repo-auditor --format json --score -o report.json
 
 # Comparar dos auditorías
 repo-auditor compare old.json new.json
@@ -185,8 +189,8 @@ pytest tests/test_filesystem.py
 | R0.5 | Auditor local | ✅ |
 | R0.6 | Integración con GitHub API | ✅ |
 | R0.7 | Health Score & Diagnostics | ✅ |
-| R0.8 | Export & History | ✅ Actual |
-| R0.9 | Reporting & UX | Pendiente |
+| R0.8 | Export & History | ✅ |
+| R0.9 | Reporting & UX | ✅ Actual |
 | R1.0 | Stable Release | Pendiente |
 
 ## Licencia
