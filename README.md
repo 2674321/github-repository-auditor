@@ -6,17 +6,6 @@ Herramienta CLI profesional que analiza repositorios Git locales y GitHub, eval�
 
 ## Instalación
 
-### Qué NO hace todavía
-
-- No utiliza OAuth ni GitHub Apps
-- No ejecuta GitHub Actions para el propio auditor
-- No crea Issues, Pull Requests ni Releases automáticos
-- No modifica repositorios
-- No realiza análisis avanzado de secretos
-- No genera scoring ni calificaciones
-
-## Instalación
-
 ```bash
 # Clonar el repositorio
 git clone https://github.com/2674321/github-repository-auditor.git
@@ -27,6 +16,14 @@ pip install -e ".[dev]"
 ```
 
 Requiere Python 3.10 o superior.
+
+## Alcance y limitaciones
+
+- Auditoría de solo lectura: nunca modifica repositorios.
+- No utiliza OAuth ni GitHub Apps.
+- No ejecuta GitHub Actions para el propio auditor.
+- No crea Issues, Pull Requests ni Releases automáticos.
+- La detección de secretos es por nombre de archivo (no análisis avanzado del contenido).
 
 ## Uso
 
@@ -184,7 +181,7 @@ pytest tests/test_filesystem.py
 
 ## Licencia
 
-Pendiente de definición. Ver [LICENSE](LICENSE) para más información.
+MIT — ver [LICENSE](LICENSE).
 
 ## Autor
 
