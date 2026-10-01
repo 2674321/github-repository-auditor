@@ -1,5 +1,7 @@
 # Repository Health Auditor
 
+**Autor:** [Patricio Varela C.](https://github.com/2674321) · **ORCID:** [0009-0002-1087-9445](https://orcid.org/0009-0002-1087-9445) · **Licencia:** [MIT](LICENSE) · **Citación:** [CITATION.cff](CITATION.cff)
+
 **Auditor de repositorios Git/GitHub · R1.0**
 
 CLI en Python para auditar repositorios Git locales y GitHub: inventaría su estado,
@@ -180,12 +182,3 @@ pytest tests/test_filesystem.py
 | R0.9 | Reporting & UX | ✅ |
 | R1.0 | Stable Release | ✅ Actual |
 
-## Licencia
-
-MIT — ver [LICENSE](LICENSE).
-
-## Autor
-
-**Patricio Varela C.** (CA2OPX)
-- GitHub: [@2674321](https://github.com/2674321)
-- ORCID: [0009-0002-1087-9445](https://orcid.org/0009-0002-1087-9445)
