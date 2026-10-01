@@ -1,8 +1,9 @@
 # Repository Health Auditor
 
-**Auditor de repositorios Git/GitHub — R1.0**
+**Auditor de repositorios Git/GitHub · R1.0**
 
-Herramienta CLI profesional que analiza repositorios Git locales y GitHub, evalúa su calidad, genera un score de salud cuantificable con diagnósticos explicables, y permite exportar y comparar auditorías.
+CLI en Python para auditar repositorios Git locales y GitHub: inventaría su estado,
+evalúa controles de salud, genera diagnósticos explicables y permite exportar o comparar resultados.
 
 ## Instalación
 
