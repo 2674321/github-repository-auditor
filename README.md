@@ -1,5 +1,8 @@
 # Repository Health Auditor
 
+
+<p align="center"><img src="docs/branding/hero-banner.svg" width="100%" alt="GitHub Repository Auditor"></p>
+
 **Autor:** [Patricio Varela C.](https://github.com/2674321) · **ORCID:** [0009-0002-1087-9445](https://orcid.org/0009-0002-1087-9445) · **Licencia:** [MIT](LICENSE) · **Citación:** [CITATION.cff](CITATION.cff)
 
 **Auditor de repositorios Git/GitHub · R1.0**
