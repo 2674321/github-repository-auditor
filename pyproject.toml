@@ -7,7 +7,7 @@ name = "repository-auditor"
 version = "0.1.0"
 description = "Auditor local de repositorios Git/GitHub — evalúa calidad, documentación, estructura y seguridad básica"
 readme = "README.md"
-license = {text = "Pendiente de definición"}
+license = {text = "MIT"}
 requires-python = ">=3.10"
 authors = [
     {name = "Patricio Varela C.", email = "2674321@users.noreply.github.com"},
@@ -15,7 +15,7 @@ authors = [
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
-    "License :: Other/Proprietary License",
+    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
